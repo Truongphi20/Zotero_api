@@ -30,5 +30,5 @@ if __name__ == "__main__":
 
     journal = Journal(scopus_path, scie_path)
 
-    journal_name = "ACM TRANSACTIONS ON COMPUTATIONAL LOGIC"
+    journal_name = "Food Science and Technology International"
     print(journal.FindType(journal_name))

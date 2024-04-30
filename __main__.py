@@ -36,4 +36,4 @@ if __name__ == "__main__":
 
     print(pdf_items['47MCS4G8'])
     parrent_key = pdf_items['47MCS4G8'].parrent_key
-    print(ref_items[parrent_key])
+    print(ref_items[parrent_key].date)
