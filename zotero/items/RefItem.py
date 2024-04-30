@@ -16,11 +16,14 @@ class RefItem:
             self.year = None
 
     def GetRank(self):
-        scimago = Scimago(self.publication)
-        ranking = scimago.ranking
-        impact_factor = scimago.impact_factor
-
-        return {'ranking': ranking, 'impact_factor': impact_factor}
+        try:
+            scimago = Scimago(self.publication)
+            ranking = scimago.ranking
+            impact_factor = scimago.impact_factor
+            return {'ranking': ranking, 'impact_factor': impact_factor}
+        
+        except IndexError:
+            return {'ranking': None, 'impact_factor': None}
     
 
     def __repr__(self) -> str:
