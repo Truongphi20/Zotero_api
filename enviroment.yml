@@ -8,4 +8,6 @@ dependencies:
   - conda-forge::pyzotero
   - ca-certificates
   - openssl
+  - lxml
+  - certifi
 prefix: /home/truongphi/miniconda3/envs/ZoteroAPI

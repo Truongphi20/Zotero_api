@@ -10,7 +10,8 @@ class Collection:
         self._items = {}
         self.pdf_items, self.ref_items = self.FilterType()
 
-
+    def DownloadPDFs(self):
+        pass
 
     def FilterType(self):
         pdf_items = {}
