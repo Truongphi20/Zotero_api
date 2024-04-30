@@ -6,9 +6,10 @@ class Scimago:
     def __init__(self, journal_name):
         self.journal_name = journal_name
         self.url = 'https://www.scimagojr.com/journalsearch.php'
+        self.ranking, self.impact_factor =  self.FindRanking()
     
-    @property
-    def ranking(self):
+
+    def FindRanking(self):
         payload = {
             'q': self.journal_id,
             'tip': 'sid',
@@ -18,8 +19,9 @@ class Scimago:
         rs = requests.get(url=self.url, params=payload).text
         tree = etree.HTML(rs)
 
-        journal_rank = tree.xpath('//div[@class="cellslide"]/table/tbody/tr[last()]/td[last()]/text()')[0]
-        return journal_rank
+        journal_rank_list = tree.xpath('//div[@class="cellslide"]/table/tbody/tr[last()]/td[last()]/text()')
+        
+        return journal_rank_list[0], journal_rank_list[3]
 
 
     @property
@@ -41,4 +43,3 @@ if __name__ == '__main__':
     journal_name = 'Food Reviews International'
 
     sci = Scimago(journal_name)
-    print(sci.ranking)
