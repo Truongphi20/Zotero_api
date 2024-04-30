@@ -13,9 +13,11 @@ if __name__ == "__main__":
     pdf_items = ztr.Collection(auth, collection_id).pdf_items
     ref_items = ztr.Collection(auth, collection_id).ref_items
 
-    print(pdf_items['NSCJTNG2'])
-    parrent_key = pdf_items['NSCJTNG2'].parrent_key
-    print(ref_items[parrent_key].publication)
-    print(ref_items[parrent_key].GetRank())
-    print(ref_items[parrent_key].pubtype)
+    # print(pdf_items["NSCJTNG2"])
+    # parrent_key = pdf_items["NSCJTNG2"].parrent_key
+    # print(ref_items[parrent_key].publication)
+    # print(ref_items[parrent_key].GetRank())
+    # print(ref_items[parrent_key].pubtype)
 
+    sample_pdf = pdf_items["NSCJTNG2"]
+    sample_pdf.DownloadPDF(auth.zot, ref_items)
