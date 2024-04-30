@@ -27,11 +27,11 @@ class Scimago:
     @property
     def journal_id(self):
         payload = {
-            'q': journal_name 
+            'q': self.journal_name 
         }
 
-        rs = requests.get(url=self.url, params=payload).text
-        tree = etree.HTML(rs)
+        rs = requests.get(url=self.url, params=payload)
+        tree = etree.HTML(rs.text)
 
         journal_ref = tree.xpath('//div[@class="search_results"]/a/@href')[0]
         journal_id = re.search(r'q=(\d+)&', journal_ref).group(1)
