@@ -25,7 +25,15 @@ if __name__ == "__main__":
     data_key = "TRQNW5S6"
 
     # print([a.get("key") for a in ztr.Collection(auth, collection_id).items])
-    print()
-    for item in ztr.Collection(auth, collection_id).items:
-        print(item["key"], item.get("data").get("title"))
-    auth.zot.dump("TRQNW5S6")
+    # for item in ztr.Collection(auth, collection_id).items:
+    #     print(item.get('key'), item.get('data').get('contentType') ,item.get('data').get('title'))
+        # if item["key"] == data_key:
+        #     print(item)
+    # auth.zot.dump("TRQNW5S6")
+
+    pdf_items = ztr.Collection(auth, collection_id).pdf_items
+    ref_items = ztr.Collection(auth, collection_id).ref_items
+
+    print(pdf_items['47MCS4G8'])
+    parrent_key = pdf_items['47MCS4G8'].parrent_key
+    print(ref_items[parrent_key])

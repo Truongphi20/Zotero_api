@@ -1,0 +1,11 @@
+name: ZoteroAPI
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.11
+  - conda-forge::pyzotero
+  - ca-certificates
+  - openssl
+prefix: /home/truongphi/miniconda3/envs/ZoteroAPI
