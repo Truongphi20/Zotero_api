@@ -1,16 +1,19 @@
 import pandas as pd
+import pathlib
 
 class Journal:
-    def __init__(self, scopus_path, scie_path):
-        self.scopus_path = scopus_path
-        self.scie_path = scie_path
+    def __init__(self, journal_name):
+        current_path = str(pathlib.Path(__file__).parent.resolve())
+        self.scopus_path = current_path + '/data/SCOPUS_March_2024.xlsx'
+        self.scie_path = current_path + '/data/SCIE2023-December-19.xlsx'
+        self.journal_name = journal_name
 
-    def FindType(self, journal_name):
-        find_in_scopus = self.scopu_data[self.scopu_data['Title name'].apply(lambda x: x.upper()) == journal_name.upper()]
+    def FindType(self):
+        find_in_scopus = self.scopu_data[self.scopu_data['Title name'].apply(lambda x: x.upper()) == self.journal_name.upper()]
         if not find_in_scopus.empty:
             return "Scopus"
         
-        find_in_scie = self.scie_data[self.scie_data['Journal title'].apply(lambda x: x.upper()) == journal_name.upper()]
+        find_in_scie = self.scie_data[self.scie_data['Journal title'].apply(lambda x: x.upper()) == self.journal_name.upper()]
         if not find_in_scie.empty:
             return "SCIE"
         
@@ -25,10 +28,8 @@ class Journal:
         return pd.read_excel(self.scie_path, skiprows=1)
     
 if __name__ == "__main__":
-    scopus_path = '/home/truongphi/Desktop/Zotero_api/data/SCOPUS_March_2024.xlsx'
-    scie_path = '/home/truongphi/Desktop/Zotero_api/data/SCIE2023-December-19.xlsx'
-
-    journal = Journal(scopus_path, scie_path)
 
     journal_name = "Food Science and Technology International"
-    print(journal.FindType(journal_name))
+    journal = Journal(journal_name)
+
+    print(journal.FindType())

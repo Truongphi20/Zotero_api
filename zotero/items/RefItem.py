@@ -1,5 +1,6 @@
 from datetime import datetime
 from ..Scimago import Scimago
+from ..Journal import Journal
 
 class RefItem:
     def __init__(self, meta_dict):
@@ -14,6 +15,10 @@ class RefItem:
             self.year = date.split('-')[0]
         else:
             self.year = None
+    
+    @property
+    def pubtype(self):
+        return Journal(self.publication).FindType()
 
     def GetRank(self):
         try:
