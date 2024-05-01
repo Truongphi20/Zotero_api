@@ -17,7 +17,7 @@ if __name__ == "__main__":
     def Download(pdf_key, zot, ref_items):
         # sample_pdf = pdf_items["NSCJTNG2"]
         sample_pdf = pdf_items[pdf_key]
-        sample_pdf.DownloadPDF(zot, ref_items)
+        sample_pdf.DownloadPDF(zot, ref_items, "out")
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         # Start the load operations and mark each future with its download
