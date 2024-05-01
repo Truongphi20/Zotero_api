@@ -1,3 +1,4 @@
 zotero/__pycache__
 zotero/items/__pycache__
-data/.~lock*
+zotero/data/.~lock*
+out/
