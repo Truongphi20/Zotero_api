@@ -18,7 +18,7 @@ class PDFItem:
         impact_factor = str(rank_dict["impact_factor"])
         pubtype = parrent.pubtype
         year = parrent.year
-        title = parrent.title.replace(" ", "_")
+        title = parrent.title.replace(" ", "_").capitalize()
 
         file_name = f"{title}-{year}-{pubtype}-{ranking}-IF{impact_factor}.pdf"
         zot.dump(self.key, file_name, outdir)
