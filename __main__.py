@@ -3,13 +3,13 @@ import os
 import concurrent.futures
 
 if __name__ == "__main__":
-    API_KEY = os.environ["ZOTERO_API_KEY"]
-    USER_ID = "13591208"
+    API_KEY = "UylF74ppeBKaDiURNDr7bWZc"
+    USER_ID = "14213612"
     library_type = "user"
 
     auth = ztr.Auth(user_id=USER_ID, api_key=API_KEY, library_type=library_type)
 
-    collection_id = "5JFGIWPG"
+    collection_id = "4CKD8DP3"
 
     pdf_items = ztr.Collection(auth, collection_id).pdf_items
     ref_items = ztr.Collection(auth, collection_id).ref_items
